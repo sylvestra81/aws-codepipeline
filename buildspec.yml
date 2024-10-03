@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Maven
+      - apt-get update
+      - apt-get install -y maven
+
+  pre_build:
+    commands:
+      - echo Cloning public GitHub repository
+      - git clone https://github.com/sylvestra81/aws-codepipeline.git
+      - cd aws-codepipeline
+
+  build:
+    commands:
+      - echo Build started
+
+
+artifacts:
+  files:
+    - target/*.jar
